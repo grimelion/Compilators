@@ -25,6 +25,7 @@ All numerical operations are on signed, 2s complement 64-bit integers.
 Multi-dimensional arrays are supported. Array elements are 64-bit integers.
 
 op ::=
+
 | `+` --- Addition
 
 | `-` --- Subtraction
@@ -50,18 +51,23 @@ op ::=
 | `&&` --- Logical and
 
 uop ::=
+
 | `!` --- Logical negation
 | `-` --- Unary minus
 
 indices ::=
+
 | `[` exp `]` indices
 | epsilon
 
 args ::=
+
 | exp
+
 | exp `,` args
 
 atomic_exp ::=
+
 | identifier indices --- Variable use and array indexing
 | identifier `(` args `)` --- Function call
 | number --- Integer constant
@@ -72,11 +78,13 @@ atomic_exp ::=
 | `(` exp `)` --- Parenthesised expression
 
 exp ::=
+
 | atomic_exp op atomic_exp --- Binary operation
 
 | atomic_exp
 
 stmt ::=
+
 | identifier indices `:=` exp
 
 | `while` exp stmt
@@ -94,11 +102,13 @@ stmt ::=
 | `return` identifier
 
 stmts ::=
+
 | epsilon
 
 | stmt stmts
 
 typ ::=
+
 | `int` --- a 64-bit signed integer
 
 | `bool` --- a boolean
@@ -106,20 +116,24 @@ typ ::=
 | `array` number --- an n dimensional array of 64-bit signed integers
 
 params ::=
+
 | `(` identifier `:` type `)`
 
 | `(` identifier `:` type `)` params
 
 var_decs ::=
+
 | epsilon
 
 | `let` identifier `:` typ `=` exp var_decs
 
 functions ::=
+
 | epsilon
 
 | `function` identifier params `:` type `{` var_decs stmts `}` funcs
 
 program ::=
+
 | var_decs functions
 
